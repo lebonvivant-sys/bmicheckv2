@@ -45,5 +45,5 @@ jobs:
       uses: azure/cli@v3
       with:
         inlineScript: |
-          az webapp deploy --src-path 'bmicheckv2.war' --name '${{ secrets.AZURE_WEBAPP_NAME }}' --resource-group '${{ secrets.RESOURCE_GROUP }}'  --async true --type war
+          az webapp deploy --subscription f0147cad-bbee-4cae-908d-73f6b3ccc8d6 --src-path 'bmicheckv2.war' --name '${{ secrets.AZURE_WEBAPP_NAME }}' --resource-group '${{ secrets.RESOURCE_GROUP }}'  --async true --type war
 
