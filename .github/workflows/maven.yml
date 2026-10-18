@@ -7,7 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
     - name: Set up JDK 27
       uses: actions/setup-java@v5
       with:
@@ -19,5 +19,5 @@ jobs:
     - name: Upload Artifact 
       uses: actions/upload-artifact@v5
       with:
-        name: bmicheckv2-war
+        name: bmicheckv2
         path: "/bmicheckv2.war"
