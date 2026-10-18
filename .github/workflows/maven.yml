@@ -21,25 +21,26 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: bmicheckv2.war
-          path: ./target/bmicheckv2.war
+          path: "./target/bmicheckv2.war"
           if-no-files-found: error
-          
-    deploy:
-      needs: build
-      runs-on: ubuntu-latest
-      environment:
-        name: Production
-        url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-      steps:
-        - name: Checkout code
-          uses: actions/checkout@v3
-        - name: Azure Login
-          uses: azure/login@v1
-          with:
-            creds: ${{ secrets.AZURE_CREDENTIALS }}
-        - name: Deploy to Azure Web App
-          id: deploy-to-webapp
-          uses: azure/webapps-deploy@v2
-          with:
-            app-name: ${{ secrets.AZURE_APP_NAME }}
-            package: .
+        
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: Production
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Deploy to Azure Web App
+      id: deploy-to-webapp
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: ${{ secrets.AZURE_APP_NAME }}
+        package: .
+
