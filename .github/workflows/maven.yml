@@ -34,7 +34,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
     - name: Azure Login
-      uses: azure/login@v4
+      uses: azure/login@v3
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: Download artifact from build job
@@ -42,7 +42,7 @@ jobs:
       with:
         name: bmicheckv2.war
     - name: Azure CLI script
-      uses: azure/cli@v4
+      uses: azure/cli@v3
       with:
         inlineScript: |
           az webapp deploy --src-path 'bmicheckv2.war' --name '${{ secrets.AZURE_WEBAPP_NAME }}' --resource-group '${{ secrets.RESOURCE_GROUP }}'  --async true --type war
