@@ -19,5 +19,5 @@ jobs:
     - name: Upload Artifact 
       uses: actions/upload-artifact@v5
       with:
-        name: bmicheckv2
+        name: bmicheckv2.war
         path: "/home/runner/work/bmicheckv2/bmicheckv2/target/bmicheckv2.war"
