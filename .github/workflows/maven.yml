@@ -29,18 +29,21 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: Production
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+        
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
     - name: Azure Login
-      uses: azure/login@v1
+      uses: azure/login@v2
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-    - name: Deploy to Azure Web App
-      id: deploy-to-webapp
-      uses: azure/webapps-deploy@v2
+    - name: Download artifact from build job
+      uses: actions/download-artifact@v2
       with:
-        app-name: ${{ secrets.AZURE_APP_NAME }}
-        package: .
+        name: bmicheckv2.war
+    - name: Azure CLI script
+      uses: azure/cli@v2
+      with:
+        inlineScript: |
+          az webapp deploy --src-path '${{ github.workspace }}/target/bmichevkv2.war' --name ${{ secrets.AZURE_WEBAPP_NAME }} --resource-group ${{ secrets.RESOURCE_GROUP }}  --async true --type war
 
