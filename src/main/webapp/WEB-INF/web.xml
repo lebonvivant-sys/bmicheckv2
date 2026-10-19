@@ -10,7 +10,7 @@
 
 <servlet>
     <servlet-name>check</servlet-name>
-    <servlet-class>classes.com.bmicheckv2.bmicheckv2</servlet-class>
+    <servlet-class>com.bmicheckv2.bmicheckv2</servlet-class>
   </servlet>
 
   <servlet-mapping>
