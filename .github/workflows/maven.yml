@@ -45,5 +45,15 @@ jobs:
       uses: azure/cli@v3
       with:
         inlineScript: |
+          az appservice plan create --resource-group '${{ secrets.RESOURCE_GROUP }}'  --name '${{ secrets.AZURE_APPSERVICE_PLAN_NAME }}' --is-linux --sku B1 --location ukwest
+    - name: Azure CLI script
+      uses: azure/cli@v3
+      with:
+        inlineScript: |
+          az webapp create --resource-group '${{ secrets.RESOURCE_GROUP }}'  --name '${{ secrets.AZURE_WEBAPP_NAME }}' '${{ secrets.AZURE_APPSERVICE_PLAN_NAME }}' --runtime "JAVA:27" --container-image-name "TOMCAT:10.1"
+    - name: Azure CLI script
+      uses: azure/cli@v3
+      with:
+        inlineScript: |
           az webapp deploy --subscription f0147cad-bbee-4cae-908d-73f6b3ccc8d6 --src-path 'bmicheckv2.war' --name '${{ secrets.AZURE_WEBAPP_NAME }}' --resource-group '${{ secrets.RESOURCE_GROUP }}'  --async true --type war
 
