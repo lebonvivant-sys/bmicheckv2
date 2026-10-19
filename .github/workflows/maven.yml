@@ -44,8 +44,10 @@ jobs:
     - name: Azure CLI script
       uses: azure/arm-deploy@v2
       with:
-        inlineScript: |
-          az appservice plan create --resource-group '${{ secrets.RESOURCE_GROUP }}'  --name '${{ secrets.AZURE_APPSERVICE_PLAN_NAME }}' --sku S1 --location  '${{ secrets.RESOURCE_GROUP }}.location'
+        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        resourceGroupName: ${{ secrets.RESOURCE_GROUP }}
+        parameters: "webAppName=${{ secrets.AZURE_APPSERVICE_PLAN_NAME }} location=${{ secrets.RESOURCE_GROUP }}.location sku=S1"
+        failOnStdErr: false
     - name: Azure CLI script
       uses: azure/webapps-deploy@v3
       with:
