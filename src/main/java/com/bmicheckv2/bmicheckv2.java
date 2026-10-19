@@ -25,11 +25,14 @@ public class bmicheckv2 extends HttpServlet {
         else if (bmicheck < 29.9) category = "Overweight";
         else category = "Obese";
         
-        String processedResult = "your BMI: " + bmicheck + ", your category: " + category; 
-        request.setAttribute("resultMessage", processedResult);
+        String processedResult = "your BMI: " + bmicheck + ", your category: " + category;
+        response.setContentType('text/html');
+        PrintWriter out =  response.getWriter();
+        out.println("<h2>"+ processedResult + "</H2>");
+        //request.setAttribute("resultMessage", processedResult);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
-        dispatcher.forward(request, response);
+        //RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+        //dispatcher.forward(request, response);
     }
 
     @Override
