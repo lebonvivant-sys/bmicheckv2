@@ -83,7 +83,7 @@ jobs:
       uses: azure/cli@v3
       with:
         inlineScript: |
-          az webapp deploy --subscription '${{ env.SUBSCRIPTION-ID }}' --src-path 'bmicheckv2.war' --name '${{ env.WEBAPP-NAME }}' --resource-group '${{ env.RESOURCE-GROUP }}'  --async true --type war --target-path webapps/bmicheckv2
+          az webapp deploy --subscription '${{ env.SUBSCRIPTION-ID }}' --src-path 'bmicheckv2.war' --name '${{ env.WEBAPP-NAME }}' --resource-group '${{ env.RESOURCE-GROUP }}'  --async true --type war
           
 
 
