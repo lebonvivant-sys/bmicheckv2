@@ -22,7 +22,7 @@ org.apache.catalina.servlets.InvokerServlet
 
  <servlet-mapping>
 <servlet-name>invoker</servlet-name>
-<url-pattern>/*</url-pattern>
+<url-pattern>/bmicheckv2/*</url-pattern>
 </servlet-mapping>
 
 </web-app>
