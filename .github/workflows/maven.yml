@@ -42,12 +42,12 @@ jobs:
       with:
         name: bmicheckv2.war
     - name: Azure CLI script
-      uses: azure/cli@v3
+      uses: azure/arm-deploy@v3
       with:
         inlineScript: |
           az appservice plan create --resource-group '${{ secrets.RESOURCE_GROUP }}'  --name '${{ secrets.AZURE_APPSERVICE_PLAN_NAME }}' --sku S1 --location  '${{ secrets.RESOURCE_GROUP }}.location'
     - name: Azure CLI script
-      uses: azure/cli@v3
+      uses: azure/webapps-deploy@v3
       with:
         inlineScript: |
           az webapp create --resource-group '${{ secrets.RESOURCE_GROUP }}'  --name '${{ secrets.AZURE_WEBAPP_NAME }}' '${{ secrets.AZURE_APPSERVICE_PLAN_NAME }}' --runtime "JAVA:27" --container-image-name "TOMCAT:10.1"
