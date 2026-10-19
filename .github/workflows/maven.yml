@@ -55,7 +55,7 @@ jobs:
       uses: actions/download-artifact@v6
       with:
         name: bmicheckv2.war
-        path: bmicheckv2.war
+        path: bmicheckv2/bmicheckv2/bmicheckv2.war
     - name: Azure Login
       uses: azure/login@v3
       with:
