@@ -5,6 +5,10 @@ name: Java CI pipeline bmicheck
       - main
 env:
   TEMPLATE-FILE: infra/webapp.bicep
+  RESOURCE-GROUP: rg-bmicheckv2-ukwest
+  LOCATION: ukwest
+  SUBSCRIPTION-ID: f0147cad-bbee-4cae-908d-73f6b3ccc8d
+  WEBAPP-NAME: bmicheckv2-webapp
   
 jobs:
   build:
@@ -55,14 +59,22 @@ jobs:
       uses: actions/download-artifact@v7
       with:
         name: bmicheckv2.war
-    - name: Azure CLI script
+    - name: Azure deploy
       uses: azure/arm-deploy@v2
       with:
-        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-        resourceGroupName: ${{ secrets.RESOURCE_GROUP }}
+        subscriptionId: ${{ env.SUBSCRIPTION-ID }}
+        resourceGroupName: ${{ env.RESOURCE-GROUP }}
         template: bicep-template/webapp.bicep
-        parameters: "webAppName=${{ secrets.AZURE_WEBAPP_NAME }} location=${{ secrets.RESOURCE_GROUP }}.location"
+        parameters: "webAppName=${{ env.WEBAPP-NAME }} location=${{ env.LOCATION }}"
         failOnStdErr: false
+    #- name: Azure CLI script
+    # uses: azure/arm-deploy@v2
+     # with:
+      #  subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+       # resourceGroupName: ${{ secrets.RESOURCE_GROUP }}
+        #template: bicep-template/webapp.bicep
+        #parameters: "webAppName=${{ secrets.AZURE_WEBAPP_NAME }} location=${{ secrets.RESOURCE_GROUP }}.location"
+        #failOnStdErr: false
    # - name: Azure CLI script
     #  uses: azure/webapps-deploy@v3
     #  with:
