@@ -60,10 +60,6 @@ jobs:
       uses: azure/login@v3
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-    - name: Download artifact from build job
-      uses: actions/download-artifact@v7
-      with:
-        name: bmicheckv2.war
     - name: Azure deploy
       uses: azure/arm-deploy@v2
       with:
