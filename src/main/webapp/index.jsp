@@ -14,10 +14,10 @@
     </form>
     </br>
       <!-- Display the result if present in the request attribute -->
-    <c:if test="${not empty resultMessage}">
+     <!-- <c:if test="${not empty resultMessage}">
         <div>
         Result&nbsp;&nbsp;&nbsp;(%):&nbsp;<input type="text" name="bmi" id="bmi" value='${resultMessage}' size="40" readonly /> <br><br>
         </div>
-    </c:if>
+    </c:if> -->
 </body>
 </html>
