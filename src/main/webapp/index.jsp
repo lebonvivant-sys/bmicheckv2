@@ -5,7 +5,7 @@
 </head>
 <body>
     <h2>BMI Calculator (JSP Version)</h2>
-    <form method="post" action="/bmicheckv2" id="bmiform">
+    <form method="post" action="bmicheckv2" id="bmiform">
         Weight (kg): <input type="number" id="weight" name="weight"
         value="${param.weight != null ? param.weight : ''}" /><br><br>
         Height (cm): <input type="number" id="height" name="height"
