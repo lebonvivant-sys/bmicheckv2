@@ -9,20 +9,13 @@
   <display-name>Archetype Created Web Application</display-name>
 
 <servlet>
-<servlet-name>invoker</servlet-name>
-<servlet-class>
-org.apache.catalina.servlets.InvokerServlet
-</servlet-class>
-<init-param>
-<param-name>debug</param-name>
-<param-value>0</param-value>
-</init-param>
-<load-on-startup>2</load-on-startup>
-</servlet>
+    <servlet-name>check</servlet-name>
+    <servlet-class>com.bmicheckv2.bmicheckv2</servlet-class>
+  </servlet>
 
- <servlet-mapping>
-<servlet-name>invoker</servlet-name>
-<url-pattern>/bmicheckv2/*</url-pattern>
-</servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>check</servlet-name>
+    <url-pattern>/bmicheckv2/bmicheckv2</url-pattern>
+  </servlet-mapping>
 
 </web-app>
