@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.RequestDispatcher;
 
-@WebServlet("/bmicheckv2")
+//@WebServlet("/bmicheckv2")
 public class bmicheckv2 extends HttpServlet {
     
     @Override
