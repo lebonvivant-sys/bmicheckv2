@@ -21,7 +21,7 @@ resource appService 'Microsoft.Web/sites@2022-09-01' = {
   properties: {
     serverFarmId: appServicePlan.id
     siteConfig: {
-      linuxFxVersion: 'JAVA|25'
+      linuxFxVersion: 'TOMCAT|10.1'
       appSettings: [
         {
           name: 'ASPNETCORE_ENVIRONMENT'
