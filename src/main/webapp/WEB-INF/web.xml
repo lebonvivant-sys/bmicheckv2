@@ -15,7 +15,7 @@
 
   <servlet-mapping>
     <servlet-name>check</servlet-name>
-    <url-pattern>com.bmicheckv2.bmicheckv2/</url-pattern>
+    <url-pattern>/bmicheckv2</url-pattern>
   </servlet-mapping>
 
 </web-app>
