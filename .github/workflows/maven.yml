@@ -51,15 +51,14 @@ jobs:
       with:
         name: bicep-template
         path: bicep-template
-    - name: Download artifact war from build job
-      uses: actions/download-artifact@v6
-      with:
-        name: bmicheckv2.war
-        path: bmicheckv2/bmicheckv2/bmicheckv2.war
     - name: Azure Login
       uses: azure/login@v3
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
+     - name: Download artifact from build job
+      uses: actions/download-artifact@v7
+      with:
+        name: bmicheckv2.war
     - name: Azure deploy
       uses: azure/arm-deploy@v2
       with:
@@ -85,5 +84,5 @@ jobs:
       uses: azure/cli@v3
       with:
         inlineScript: |
-          az webapp deploy --subscription ${{ env.SUBSCRIPTION-ID }} --src-path 'bmicheckv2/bmicheckv2/bmicheckv2/bmicheckv2/bmicheckv2.war' --name '${{ env.WEBAPP-NAME }}' --resource-group '${{ env.RESOURCE-GROUP }}'  --async true --type war
+          az webapp deploy --subscription ${{ env.SUBSCRIPTION-ID }} --src-path 'bmicheckv2.war' --name '${{ env.WEBAPP-NAME }}' --resource-group '${{ env.RESOURCE-GROUP }}'  --async true --type war
 
