@@ -41,7 +41,6 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: Production
-        
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -55,7 +54,7 @@ jobs:
       uses: azure/login@v3
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-     - name: Download artifact from build job
+    - name: Download artifact from build job
       uses: actions/download-artifact@v7
       with:
         name: bmicheckv2.war
@@ -85,5 +84,6 @@ jobs:
       with:
         inlineScript: |
           az webapp deploy --subscription '${{ env.SUBSCRIPTION-ID }}' --src-path 'bmicheckv2.war' --name '${{ env.WEBAPP-NAME }}' --resource-group '${{ env.RESOURCE-GROUP }}'  --async true --type war
+          
 
 
