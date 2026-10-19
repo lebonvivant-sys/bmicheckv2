@@ -21,11 +21,11 @@ resource appService 'Microsoft.Web/sites@2022-09-01' = {
   properties: {
     serverFarmId: appServicePlan.id
     siteConfig: {
-      linuxFxVersion: 'DOCKER|index.docker.io/tomcat:jre25-temurin-noble'
+      linuxFxVersion: 'JAVA|25'
       appSettings: [
         {
           name: 'ASPNETCORE_ENVIRONMENT'
-          value: 'Docker'
+          value: 'TOMCAT'
         }
        ]
     }
