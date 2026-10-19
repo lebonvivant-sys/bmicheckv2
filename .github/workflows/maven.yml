@@ -45,7 +45,7 @@ jobs:
       uses: azure/cli@v3
       with:
         inlineScript: |
-          az appservice plan create --resource-group '${{ secrets.RESOURCE_GROUP }}'  --name '${{ secrets.AZURE_APPSERVICE_PLAN_NAME }}' --is-linux true --sku B1 --location ukwest
+          az appservice plan create --resource-group '${{ secrets.RESOURCE_GROUP }}'  --name '${{ secrets.AZURE_APPSERVICE_PLAN_NAME }}' --sku B1 --location ukwest
     - name: Azure CLI script
       uses: azure/cli@v3
       with:
