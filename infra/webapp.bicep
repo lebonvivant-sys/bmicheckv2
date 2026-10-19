@@ -6,6 +6,7 @@ var appServicePlanName = toLower('AppServicePlan-${webAppName}')
 
 resource appServicePlan 'Microsoft.Web/serverfarms@2022-09-01' = {
   name: appServicePlanName
+  kind: linux
   location: location
   properties: {
     reserved: true
@@ -21,17 +22,13 @@ resource appService 'Microsoft.Web/sites@2022-09-01' = {
   properties: {
     serverFarmId: appServicePlan.id
     siteConfig: {
-      linuxFxVersion: 'JAVA|25'
+      linuxFxVersion: 'DOCKER|index.docker.io/tomcat:jre25-temurin-noble'
       appSettings: [
         {
           name: 'ASPNETCORE_ENVIRONMENT'
-          value: 'Development'
+          value: 'Docker'
         }
-        {
-          name: 'UseOnlyInMemoryDatabase'
-          value: 'true'
-        }
-      ]
+       ]
     }
   }
 }
