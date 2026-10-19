@@ -7,7 +7,7 @@ env:
   TEMPLATE-FILE: infra/webapp.bicep
   RESOURCE-GROUP: rg-bmicheckv2-ukwest
   LOCATION: ukwest
-  SUBSCRIPTION-ID: f0147cad-bbee-4cae-908d-73f6b3ccc8d
+  SUBSCRIPTION-ID: f0147cad-bbee-4cae-908d-73f6b3ccc8d6
   WEBAPP-NAME: bmicheckv2-webapp
   
 jobs:
