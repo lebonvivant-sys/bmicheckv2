@@ -1,4 +1,4 @@
-name: Java CI pipeline bmicheckv2
+name: Java CI pipeline bmicheck
 "on":
   push:
     branches:
