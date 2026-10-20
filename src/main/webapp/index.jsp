@@ -15,7 +15,6 @@
         <button type="submit">Calculate</button>&nbsp;&nbsp;&nbsp;<button type="button" onclick="document.getElementById('weight').value='';document.getElementById('height').value='';document.getElementById('bmi').value=''">Reset</button>
     </form>
     </br>
-      <!-- Display the result if present in the request attribute -->
      <c:if test="${not empty resultMessage}">
         <div>
         Result&nbsp;&nbsp;&nbsp;(%):&nbsp;<input type="text" name="bmi" id="bmi" value='${resultMessage}' size="40" readonly /> <br><br>
