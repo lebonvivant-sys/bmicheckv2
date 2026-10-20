@@ -14,6 +14,20 @@
         value="${param.height != null ? param.height : ''}" /><br><br>
         <button type="submit">Calculate</button>&nbsp;&nbsp;&nbsp;<button type="button" onclick="document.getElementById('weight').value='';document.getElementById('height').value='';document.getElementById('bmi').value=''">Reset</button>
     </form>
+     <form method="post" action="bmicheckv2-2" id="bmiform2">
+        Weight (kg): <input type="number" id="weight" name="weight"
+        value="${param.weight != null ? param.weight : ''}" /><br><br>
+        Height (cm): <input type="number" id="height" name="height"
+        value="${param.height != null ? param.height : ''}" /><br><br>
+        <button type="submit">Calculate</button>&nbsp;&nbsp;&nbsp;<button type="button" onclick="document.getElementById('weight').value='';document.getElementById('height').value='';document.getElementById('bmi').value=''">Reset</button>
+    </form>
+     <form method="post" action="bmicheckv2-3" id="bmiform3">
+        Weight (kg): <input type="number" id="weight" name="weight"
+        value="${param.weight != null ? param.weight : ''}" /><br><br>
+        Height (cm): <input type="number" id="height" name="height"
+        value="${param.height != null ? param.height : ''}" /><br><br>
+        <button type="submit">Calculate</button>&nbsp;&nbsp;&nbsp;<button type="button" onclick="document.getElementById('weight').value='';document.getElementById('height').value='';document.getElementById('bmi').value=''">Reset</button>
+    </form>
     </br>
       <!-- Display the result if present in the request attribute -->
      <!-- <c:if test="${not empty resultMessage}">
