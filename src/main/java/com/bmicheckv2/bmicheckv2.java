@@ -28,7 +28,7 @@ public class bmicheckv2 extends HttpServlet {
         String processedResult = "your BMI: " + bmicheck + ", your category: " + category;
         response.setContentType("text/html");
         PrintWriter out =  response.getWriter();
-        System.out.println("<h2>"+ processedResult + "</H2>");
+        out.println("<h2>"+ processedResult + "</H2>");
         //request.setAttribute("resultMessage", processedResult);
 
         //RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
