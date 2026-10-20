@@ -14,9 +14,13 @@ public class bmicheckv2 extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        double weight = Double.parseDouble(request.getParameter("weight"));
-        double height = Double.parseDouble(request.getParameter("height")) / 100;
-
+        double weight = 10000000;
+        double height= 1;
+        if ((request.getParameter("weight") != null) || (request.getParameter("height") != null)) {
+        weight = Double.parseDouble(request.getParameter("weight"));
+        height = Double.parseDouble(request.getParameter("height")) / 100;
+        }
+      
         double bmicheck = weight / (height * height);
         bmicheck = Math.floor(bmicheck * 100) / 100;
         String category;
