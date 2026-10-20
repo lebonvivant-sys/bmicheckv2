@@ -17,24 +17,4 @@
     <servlet-name>check</servlet-name>
     <url-pattern>/bmicheckv2</url-pattern>
   </servlet-mapping>
-
-    <servlet>
-    <servlet-name>check-2</servlet-name>
-    <servlet-class>com.bmicheckv2.bmicheckv2.bmicheckv2</servlet-class>
-  </servlet>
-
-  <servlet-mapping>
-    <servlet-name>check-2</servlet-name>
-    <url-pattern>/bmicheckv2-2</url-pattern>
-  </servlet-mapping>
-  
-    <servlet>
-    <servlet-name>check-3</servlet-name>
-    <servlet-class>com.bmicheckv2</servlet-class>
-  </servlet>
-
-  <servlet-mapping>
-    <servlet-name>check-3</servlet-name>
-    <url-pattern>/bmicheckv2-3</url-pattern>
-  </servlet-mapping>
 </web-app>
