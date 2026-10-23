@@ -14,13 +14,12 @@ public class bmicheckv2 extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        double weight = 10000000;
-        double height= 1;
+        String processedResult = "";
+        
         if ((request.getParameter("weight") != "") || (request.getParameter("height") != "")) {
-        weight = Double.parseDouble(request.getParameter("weight"));
-        height = Double.parseDouble(request.getParameter("height")) / 100;
-        }
-      
+        double weight = Double.parseDouble(request.getParameter("weight"));
+        double height = Double.parseDouble(request.getParameter("height")) / 100;
+        
         double bmicheck = weight / (height * height);
         bmicheck = Math.floor(bmicheck * 100) / 100;
         String category;
@@ -29,12 +28,14 @@ public class bmicheckv2 extends HttpServlet {
         else if (bmicheck < 29.9) category = "Overweight";
         else category = "Obese";
         
-        String processedResult = "your BMI: " + bmicheck + ", your category: " + category;
-        //response.setContentType("text/html");
-        //PrintWriter out =  response.getWriter();
-        //out.println("<h2>"+ processedResult + "</H2>");
+        processedResult = "your BMI: " + bmicheck + ", your category: " + category;
+        }
+        else 
+            {
+       processedResult = "Please enter valid weight and height values.";
+        }
+        
         request.setAttribute("resultMessage", processedResult);
-
         RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
         dispatcher.forward(request, response);
     }
